@@ -46,10 +46,12 @@ gender_mean_coll$merged= paste(gender_mean_coll$role, gender_mean_coll$Status, s
 gender_mean_coll= filter(gender_mean_coll, role !="actsin")
 
 gender_mean_coll_2= arrange(gender_mean_coll, desc(mean_bech))
-
+##tableau
 tableau<- ggplot(data = gender_mean_coll_2) + 
-  geom_bar(mapping = aes(x = reorder(merged, -mean_bech), y= mean_bech, fill=role),stat="identity")
+  geom_bar(mapping = aes(x = reorder(merged, -mean_bech), y= mean_bech, fill=role),stat="identity")+ 
+
+ ##labs 
 
 tableau %>% 
-  + xlab("") %>% 
- +ylab("Bechdel Score")
+ +labs(y="Bechdel Score", title="Bechdel score for different roles", x="")
+
